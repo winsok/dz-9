@@ -14,23 +14,19 @@ public class Women extends Person {
         this.previousLastname = previousLastname;
     }
 
-    public boolean isRetired(Women women){
-        boolean retired = false;
-        if (women.getAge() > 60) {
-            retired = true;
-        }
-        return retired;
+    public boolean isRetired(){
+        return getAge() > 65;
     }
 
-    public void registerPartnership(Man man,Women women) {
-        women.setLastName(man.getLastName());
-        women.setPartner(true);
+    public void registerPartnership(Man man) {
+        setLastName(man.getLastName());
+        setPartner(true);
         man.setPartner(true);
     }
 
-    public void deregisterPartnership(Man man,Women women) {
-        women.setLastName(women.getPreviousLastname());
-        women.setPartner(false);
+    public void deregisterPartnership(Man man) {
+        setLastName(getPreviousLastname());
+        setPartner(false);
         man.setPartner(false);
     }
 
